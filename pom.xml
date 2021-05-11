@@ -79,7 +79,7 @@
     <scm>
 <!--        <developerConnection>scm:git:git@github.com:zakdim/sfg-pet-clinic.git</developerConnection>-->
 <!--        <developerConnection>scm:git:https://user:password@github.com/zakdim/sfg-pet-clinic.git</developerConnection>-->
-        <developerConnection>scm:git:https://zakdim:zakd1234@github.com/zakdim/sfg-pet-clinic.git</developerConnection>
+        <developerConnection>scm:git:https://user:password@github.com/zakdim/sfg-pet-clinic.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
