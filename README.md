@@ -9,7 +9,9 @@ SFG Pet Clinic
 
 1. Prepare release
 
-NOTE: there should not be any local change, commit and push before proceeding.
+NOTE: 
+- There should not be any local change, commit and push before proceeding.
+- Make sure java 11 is used in terminal
 
 ```
 mvn release:prepare
