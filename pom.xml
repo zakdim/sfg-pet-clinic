@@ -32,25 +32,36 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
-    <dependencies>
-
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--                <configuration>-->
+                <!--                    <excludes>-->
+                <!--                        <exclude>-->
+                <!--                            <groupId>org.projectlombok</groupId>-->
+                <!--                            <artifactId>lombok</artifactId>-->
+                <!--                        </exclude>-->
+                <!--                    </excludes>-->
+                <!--                </configuration>-->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <scm>
+<!--        <developerConnection>scm:git:git@github.com:zakdim/sfg-pet-clinic.git</developerConnection>-->
+<!--        <developerConnection>scm:git:https://user:password@github.com/zakdim/sfg-pet-clinic.git</developerConnection>-->
+        <developerConnection>scm:git:https://zakdim:zakd1234@github.com/zakdim/sfg-pet-clinic.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
 </project>
