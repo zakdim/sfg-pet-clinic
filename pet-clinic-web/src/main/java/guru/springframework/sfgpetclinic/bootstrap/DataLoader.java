@@ -36,6 +36,9 @@ public class DataLoader implements CommandLineRunner {
         cat.setName("Cat");
         PetType savedCatPetType = petTypeService.save(cat);
 
+        System.out.println("====== Loaded Pet Types");
+        petTypeService.findAll().forEach(System.out::println);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
@@ -48,7 +51,8 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
         
-        System.out.println("Loaded Owners...");
+        System.out.println("====== Loaded Owners...");
+        ownerService.findAll().forEach(System.out::println);
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
@@ -62,6 +66,7 @@ public class DataLoader implements CommandLineRunner {
 
         vetService.save(vet2);
 
-        System.out.println("Loaded Vets....");
+        System.out.println("====== Loaded Vets....");
+        vetService.findAll().forEach(System.out::println);
     }
 }
