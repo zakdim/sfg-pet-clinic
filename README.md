@@ -1,6 +1,7 @@
-# sfg-pet-clinic
+[![CircleCI](https://circleci.com/gh/zakdim/sfg-pet-clinic/tree/master.svg?style=svg)](https://circleci.com/gh/zakdim/sfg-pet-clinic/tree/master)
+# Spring Framework Guru Pet Clinic
 
-SFG Pet Clinic
+[Udemy - Spring Framework 5: Beginner to Guru](https://www.udemy.com/course/spring-framework-5-beginner-to-guru/)
 
 ## S03-49 Using the Maven Release Plugin
 
