@@ -88,4 +88,11 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
         //todo - impl
         return null;
     }
+
+    @Override
+    public List<Owner> findByLastNameContainingIgnoreCase(String lastName) {
+
+        //todo - impl
+        return null;
+    }
 }
