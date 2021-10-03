@@ -2,8 +2,6 @@ package guru.springframework.sfgpetclinic.controllers;
 
 import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.model.Visit;
-import guru.springframework.sfgpetclinic.repositories.PetRepository;
-import guru.springframework.sfgpetclinic.repositories.VisitRepository;
 import guru.springframework.sfgpetclinic.services.PetService;
 import guru.springframework.sfgpetclinic.services.VisitService;
 import org.springframework.stereotype.Controller;
@@ -12,10 +10,13 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.beans.PropertyEditorSupport;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 /**
- * Créé par dab4926 le 2021-08-21.
+ * Created by jt on 2018-09-27.
  */
 @Controller
 public class VisitController {
@@ -29,14 +30,24 @@ public class VisitController {
     }
 
     @InitBinder
-    public void setAllowedFields(WebDataBinder dataBinder) {
+    public void dataBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
+
+        dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) throws IllegalArgumentException{
+                setValue(LocalDate.parse(text));
+            }
+        });
     }
 
     /**
-     * Called before each and every @RequestMapping annotated method. 2 goals: - Make sure
-     * we always have fresh data - Since we do not use the session scope, make sure that
-     * Pet object always has an id (Even though id is not part of the form fields)
+     * Called before each and every @RequestMapping annotated method.
+     * 2 goals:
+     * - Make sure we always have fresh data
+     * - Since we do not use the session scope, make sure that Pet object always has an id
+     * (Even though id is not part of the form fields)
+     *
      * @param petId
      * @return Pet
      */
@@ -61,9 +72,9 @@ public class VisitController {
     public String processNewVisitForm(@Valid Visit visit, BindingResult result) {
         if (result.hasErrors()) {
             return "pets/createOrUpdateVisitForm";
-        }
-        else {
+        } else {
             visitService.save(visit);
+
             return "redirect:/owners/{ownerId}";
         }
     }
